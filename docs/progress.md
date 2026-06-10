@@ -46,3 +46,15 @@
   - В `header.php` подключены стандартные точки Битрикс (`ShowHead`, `ShowPanel`) и базовые компоненты меню/поиска/корзины.
 - Артефакты:
   - `local/templates/fullready_shop/*`
+
+## Шаг 5. Перенос статики
+
+- Статус: `done`
+- Что сделано:
+  - Статика `fullready` перенесена в `local/templates/fullready_shop/assets/`.
+  - CSS/JS подключены через `Asset::getInstance()` в `header.php`.
+  - Сохранены папки `images`, `fonts`, `libs/selectric`.
+- Артефакты:
+  - `local/templates/fullready_shop/assets/css/style.min.css`
+  - `local/templates/fullready_shop/assets/js/main.min.js`
+  - `local/templates/fullready_shop/assets/images/*`

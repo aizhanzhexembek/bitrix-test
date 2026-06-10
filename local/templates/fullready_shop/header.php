@@ -6,8 +6,13 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 use Bitrix\Main\Page\Asset;
 
 $asset = Asset::getInstance();
+$asset->addCss(SITE_TEMPLATE_PATH . '/assets/css/style.min.css');
+$asset->addCss(SITE_TEMPLATE_PATH . '/assets/libs/selectric/selectric.css');
 $asset->addCss(SITE_TEMPLATE_PATH . '/styles.css');
 $asset->addCss(SITE_TEMPLATE_PATH . '/template_styles.css');
+$asset->addJs(SITE_TEMPLATE_PATH . '/assets/js/jquery.min.js');
+$asset->addJs(SITE_TEMPLATE_PATH . '/assets/js/jquery.selectric.min.js');
+$asset->addJs(SITE_TEMPLATE_PATH . '/assets/js/main.min.js');
 $asset->addJs(SITE_TEMPLATE_PATH . '/script.js');
 ?>
 <!doctype html>
@@ -128,4 +133,3 @@ $asset->addJs(SITE_TEMPLATE_PATH . '/script.js');
         </div>
     </header>
     <main class="main-content">
-
