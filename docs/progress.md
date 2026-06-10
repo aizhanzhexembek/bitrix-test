@@ -16,3 +16,13 @@
 - Артефакты:
   - Git-ветка: `feature/fullready-integration`
 
+## Шаг 2. Аудит верстки из `fullready`
+
+- Статус: `done`
+- Что сделано:
+  - Репозиторий `fullready` склонирован в `docs/fullready-src` для локального анализа.
+  - Проанализированы структура HTML, ресурсы CSS/JS/fonts/images, UI-блоки и зависимости.
+  - Сформирован документ аудита.
+- Артефакты:
+  - `docs/fullready-audit.md`
+  - `docs/fullready-src/index.html`
