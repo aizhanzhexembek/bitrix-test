@@ -36,3 +36,13 @@
   - Принято решение не менять базовый `eshop_bootstrap_v4`.
 - Артефакты:
   - `docs/fullready-bitrix-mapping.md`
+
+## Шаг 4. Создание рабочей копии шаблона
+
+- Статус: `done`
+- Что сделано:
+  - Создан новый шаблон `local/templates/fullready_shop`.
+  - Добавлены базовые файлы шаблона: `description.php`, `header.php`, `footer.php`, `styles.css`, `template_styles.css`, `script.js`.
+  - В `header.php` подключены стандартные точки Битрикс (`ShowHead`, `ShowPanel`) и базовые компоненты меню/поиска/корзины.
+- Артефакты:
+  - `local/templates/fullready_shop/*`
