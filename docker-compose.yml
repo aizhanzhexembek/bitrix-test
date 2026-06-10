@@ -1,0 +1,56 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        HOST_UID: ${HOST_UID:-1000}
+        HOST_GID: ${HOST_GID:-1000}
+    container_name: php-apache
+    restart: unless-stopped
+    ports:
+      - "40080:80"
+    volumes:
+      - ./.:/var/www/html
+    depends_on:
+      - mariadb
+      - memcached
+    networks:
+      - app-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  mariadb:
+    image: mariadb:10.11
+    container_name: mariadb-db
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app
+      MYSQL_USER: app_user
+      MYSQL_PASSWORD: app_password
+    command: ["--default-time-zone=+03:00"]
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - app-network
+
+  memcached:
+    image: memcached:1.6
+    container_name: memcached
+    restart: unless-stopped
+    pull_policy: missing
+    ports:
+      - "11211:11211"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mariadb_data:
+
