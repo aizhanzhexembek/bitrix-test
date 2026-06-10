@@ -16,6 +16,10 @@ $asset->addJs(SITE_TEMPLATE_PATH . '/assets/js/main.min.js');
 $asset->addJs(SITE_TEMPLATE_PATH . '/script.js');
 
 $curPage = $APPLICATION->GetCurPage(true);
+$request = \Bitrix\Main\Context::getCurrent()->getRequest();
+$isHttps = $request->isHttps() || (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on');
+$scheme = $isHttps ? 'https' : 'http';
+$canonical = $scheme . '://' . $request->getHttpHost() . $APPLICATION->GetCurPage(false);
 ?>
 <!doctype html>
 <html lang="<?= LANGUAGE_ID ?>">
@@ -24,6 +28,9 @@ $curPage = $APPLICATION->GetCurPage(true);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php $APPLICATION->ShowTitle(); ?></title>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<?php $APPLICATION->ShowTitle(false); ?>">
+    <link rel="canonical" href="<?= htmlspecialcharsbx($canonical) ?>">
     <?php $APPLICATION->ShowHead(); ?>
 </head>
 <body>
