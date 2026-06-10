@@ -14,6 +14,8 @@ $asset->addJs(SITE_TEMPLATE_PATH . '/assets/js/jquery.min.js');
 $asset->addJs(SITE_TEMPLATE_PATH . '/assets/js/jquery.selectric.min.js');
 $asset->addJs(SITE_TEMPLATE_PATH . '/assets/js/main.min.js');
 $asset->addJs(SITE_TEMPLATE_PATH . '/script.js');
+
+$curPage = $APPLICATION->GetCurPage(true);
 ?>
 <!doctype html>
 <html lang="<?= LANGUAGE_ID ?>">
@@ -27,6 +29,23 @@ $asset->addJs(SITE_TEMPLATE_PATH . '/script.js');
 <body>
 <?php $APPLICATION->ShowPanel(); ?>
 <div class="fullready-layout">
+    <div class="filterPopup" id="filterPopup">
+        <div class="filterPopup__inner">
+            <button class="filterPopup__button" onclick="CloseFilterPopup()" id="filterPopup__button" type="button"></button>
+            <form class="cameras__filtres" action="#" id="filterPopup__form">
+                <label for="Popup__cameras-logo">
+                    <select class="cameras__logo" name="cameras_logo" id="Popup__cameras-logo">
+                        <option value="logo_item1">Любого логотипа</option>
+                    </select>
+                </label>
+                <label for="Popup__cameras-brand">
+                    <select class="cameras__brand" name="cameras_brand" id="Popup__cameras-brand">
+                        <option value="brand_item1">Любого бренда</option>
+                    </select>
+                </label>
+            </form>
+        </div>
+    </div>
     <header class="header">
         <div class="container">
             <div class="header__inner">
@@ -133,3 +152,20 @@ $asset->addJs(SITE_TEMPLATE_PATH . '/script.js');
         </div>
     </header>
     <main class="main-content">
+        <div class="container">
+            <?php if ($curPage !== SITE_DIR . 'index.php'): ?>
+                <?php
+                $APPLICATION->IncludeComponent(
+                    'bitrix:breadcrumb',
+                    'universal',
+                    [
+                        'START_FROM' => '0',
+                        'PATH' => '',
+                        'SITE_ID' => '-',
+                    ],
+                    false,
+                    ['HIDE_ICONS' => 'Y']
+                );
+                ?>
+                <h1 id="pagetitle"><?php $APPLICATION->ShowTitle(false); ?></h1>
+            <?php endif; ?>

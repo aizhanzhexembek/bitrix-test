@@ -58,3 +58,14 @@
   - `local/templates/fullready_shop/assets/css/style.min.css`
   - `local/templates/fullready_shop/assets/js/main.min.js`
   - `local/templates/fullready_shop/assets/images/*`
+
+## Шаг 6. Натяжка каркаса сайта (layout shell)
+
+- Статус: `done`
+- Что сделано:
+  - В `header.php` добавлен popup-блок фильтра и структура main-контейнера.
+  - Добавлены `breadcrumb` и `ShowTitle(false)` для внутренних страниц.
+  - В `footer.php` добавлены базовые include-блоки контактов и копирайта.
+- Артефакты:
+  - `local/templates/fullready_shop/header.php`
+  - `local/templates/fullready_shop/footer.php`
