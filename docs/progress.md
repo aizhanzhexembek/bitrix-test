@@ -69,3 +69,16 @@
 - Артефакты:
   - `local/templates/fullready_shop/header.php`
   - `local/templates/fullready_shop/footer.php`
+
+## Шаг 7. Главная страница
+
+- Статус: `partial`
+- Что сделано:
+  - Создан шаблон компонента `bitrix:catalog.section` в стиле `fullready`.
+  - Главная (`index.php`) переключена на шаблон `fullready_cards`.
+  - Добавлен параметр `SECTION_TITLE` для визуального заголовка блока.
+- Что осталось:
+  - Перенести дополнительные секции главной (баннеры/бренды/блог), если нужны в целевом макете.
+- Артефакты:
+  - `local/templates/fullready_shop/components/bitrix/catalog.section/fullready_cards/template.php`
+  - `index.php`
