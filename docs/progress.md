@@ -108,3 +108,16 @@
 - Артефакты:
   - `local/templates/fullready_shop/components/bitrix/sale.basket.basket.line/fullready_header/template.php`
   - `local/templates/fullready_shop/header.php`
+
+## Шаг 10. Контентные страницы и вспомогательные разделы
+
+- Статус: `partial`
+- Что сделано:
+  - Добавлен единый блок навигации по контентным разделам для внутренних страниц.
+  - Добавлены базовые стили для контентной навигации и бейджа количества в корзине.
+- Что осталось:
+  - Точечно адаптировать шаблоны страниц `about`, `news`, `search`, `store` под финальный UI-макет.
+- Артефакты:
+  - `local/templates/fullready_shop/includes/content-links.php`
+  - `local/templates/fullready_shop/header.php`
+  - `local/templates/fullready_shop/styles.css`

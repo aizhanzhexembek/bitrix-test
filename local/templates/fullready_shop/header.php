@@ -168,4 +168,5 @@ $curPage = $APPLICATION->GetCurPage(true);
                 );
                 ?>
                 <h1 id="pagetitle"><?php $APPLICATION->ShowTitle(false); ?></h1>
+                <?php include __DIR__ . '/includes/content-links.php'; ?>
             <?php endif; ?>

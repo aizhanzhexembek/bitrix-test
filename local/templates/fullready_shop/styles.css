@@ -1,2 +1,33 @@
 /* Основные стили шаблона fullready_shop */
 
+/* Базовые стили-надстройки для интеграции fullready с Bitrix */
+
+.content-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 8px 0 20px;
+}
+
+.content-links a {
+    color: #1d4aa8;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.content-links a:hover {
+    text-decoration: underline;
+}
+
+.basket__count {
+    display: inline-block;
+    min-width: 18px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 9px;
+    text-align: center;
+    font-size: 11px;
+    background: #e53935;
+    color: #fff;
+    margin-left: 6px;
+}
