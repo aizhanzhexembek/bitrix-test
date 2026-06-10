@@ -133,7 +133,7 @@ $curPage = $APPLICATION->GetCurPage(true);
                     <?php
                     $APPLICATION->IncludeComponent(
                         'bitrix:sale.basket.basket.line',
-                        'bootstrap_v4',
+                        'fullready_header',
                         [
                             'PATH_TO_BASKET' => SITE_DIR . 'personal/cart/',
                             'PATH_TO_PERSONAL' => SITE_DIR . 'personal/',
