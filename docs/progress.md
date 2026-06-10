@@ -121,3 +121,13 @@
   - `local/templates/fullready_shop/includes/content-links.php`
   - `local/templates/fullready_shop/header.php`
   - `local/templates/fullready_shop/styles.css`
+
+## Шаг 11. JS-логика и интерактив
+
+- Статус: `done`
+- Что сделано:
+  - Добавлена инициализация Selectric для `select` и повторная инициализация после AJAX-обновлений (`onAjaxSuccess`).
+  - Добавлен безопасный fallback на `DOMContentLoaded` при отсутствии `BX.ready`.
+  - Выполнена проверка синтаксиса файла через `node --check`.
+- Артефакты:
+  - `local/templates/fullready_shop/script.js`
