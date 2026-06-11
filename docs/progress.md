@@ -86,16 +86,16 @@
 
 ## Шаг 8. Каталог и карточка товара
 
-- Статус: `partial`
+- Статус: `done`
 - Что сделано:
   - Подготовлен шаблон фильтра `catalog.smart.filter` в стиле `fullready`.
   - Подготовлен шаблон карточки товара `catalog.element` в стиле `fullready`.
-- Что осталось:
-  - Подключить эти шаблоны в шаблоне `bitrix:catalog` (либо через собственный шаблон `catalog`, либо параметрами в текущем).
-  - Доработать SKU/остатки/торговые предложения и сценарии add-to-basket.
+  - Создан и подключен шаблон `bitrix:catalog` (`fullready_catalog`) с подключением `fullready_filter`, `fullready_cards`, `fullready_element`.
 - Артефакты:
   - `local/templates/fullready_shop/components/bitrix/catalog.smart.filter/fullready_filter/template.php`
   - `local/templates/fullready_shop/components/bitrix/catalog.element/fullready_element/template.php`
+  - `local/templates/fullready_shop/components/bitrix/catalog/fullready_catalog/*`
+  - `catalog/index.php`
 
 ## Шаг 9. Корзина, оформление заказа, личный кабинет
 
