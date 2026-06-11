@@ -143,15 +143,16 @@
 
 ## Шаг 12. SEO и техническая корректность
 
-- Статус: `partial`
+- Статус: `done`
 - Что сделано:
   - Добавлены базовые `og`-метки (`og:type`, `og:title`) в `head` шаблона.
   - Добавлен расчет и вывод `canonical` URL на основе текущего запроса.
-- Что осталось:
-  - Проверить `urlrewrite.php`/ЧПУ и карту редиректов на окружении.
-  - Донастроить метаданные и микроразметку для товарных страниц.
+  - Проверены правила ЧПУ в `urlrewrite.php` для `/catalog/`, `/news/`, `/store/`, `/personal/`.
+  - В карточку товара добавлена микроразметка `Product`/`Offer` (name, image, description, price, currency, availability).
 - Артефакты:
   - `local/templates/fullready_shop/header.php`
+  - `urlrewrite.php`
+  - `local/templates/fullready_shop/components/bitrix/catalog.element/fullready_element/template.php`
 
 ## Шаг 13. Тестирование
 
