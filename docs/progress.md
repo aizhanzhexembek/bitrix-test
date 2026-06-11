@@ -117,16 +117,19 @@
 
 ## Шаг 10. Контентные страницы и вспомогательные разделы
 
-- Статус: `partial`
+- Статус: `done`
 - Что сделано:
   - Добавлен единый блок навигации по контентным разделам для внутренних страниц.
   - Добавлены базовые стили для контентной навигации и бейджа количества в корзине.
-- Что осталось:
-  - Точечно адаптировать шаблоны страниц `about`, `news`, `search`, `store` под финальный UI-макет.
+  - Добавлены унифицированные fullready-контейнеры для страниц `about`, `news`, `search`, `store`.
 - Артефакты:
   - `local/templates/fullready_shop/includes/content-links.php`
   - `local/templates/fullready_shop/header.php`
   - `local/templates/fullready_shop/styles.css`
+  - `about/index.php`
+  - `news/index.php`
+  - `search/index.php`
+  - `store/index.php`
 
 ## Шаг 11. JS-логика и интерактив
 

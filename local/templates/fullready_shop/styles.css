@@ -65,3 +65,11 @@
 .fullready-personal .basket-items-list-header {
     border-radius: 6px;
 }
+
+.fullready-content-page {
+    margin: 8px 0 24px;
+}
+
+.fullready-content-page h2 {
+    margin-top: 20px;
+}
