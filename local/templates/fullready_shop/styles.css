@@ -55,3 +55,13 @@
 .home-extra__links a:hover {
     text-decoration: underline;
 }
+
+.fullready-personal {
+    margin: 16px 0 32px;
+}
+
+.fullready-personal .sale-order-list-title-container,
+.fullready-personal .sale-personal-section-index-block,
+.fullready-personal .basket-items-list-header {
+    border-radius: 6px;
+}

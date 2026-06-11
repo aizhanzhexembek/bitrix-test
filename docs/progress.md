@@ -99,16 +99,21 @@
 
 ## Шаг 9. Корзина, оформление заказа, личный кабинет
 
-- Статус: `partial`
+- Статус: `done`
 - Что сделано:
   - Добавлен шаблон мини-корзины для хедера (`sale.basket.basket.line`) в стиле `fullready`.
   - Хедер переключен на использование `fullready_header` вместо `bootstrap_v4`.
-- Что осталось:
-  - Натянуть `sale.basket.basket`, `sale.order.ajax`, страницы авторизации/профиля.
-  - Привести состояния ошибок и empty-state к дизайну.
+  - Подключены отдельные шаблоны `fullready_cart`, `fullready_order`, `fullready_personal`.
+  - Страницы `/personal/`, `/personal/cart/`, `/personal/order/make/` переведены на новые шаблоны.
 - Артефакты:
   - `local/templates/fullready_shop/components/bitrix/sale.basket.basket.line/fullready_header/template.php`
   - `local/templates/fullready_shop/header.php`
+  - `local/templates/fullready_shop/components/bitrix/sale.basket.basket/fullready_cart/*`
+  - `local/templates/fullready_shop/components/bitrix/sale.order.ajax/fullready_order/*`
+  - `local/templates/fullready_shop/components/bitrix/sale.personal.section/fullready_personal/*`
+  - `personal/index.php`
+  - `personal/cart/index.php`
+  - `personal/order/make/index.php`
 
 ## Шаг 10. Контентные страницы и вспомогательные разделы
 
