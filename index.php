@@ -160,4 +160,24 @@ $trendFilter = array('PROPERTY_TREND' => '38');
 	),
 	false
 );?>
+
+<?$APPLICATION->IncludeComponent(
+	"bitrix:main.include",
+	"",
+	array(
+		"AREA_FILE_SHOW" => "file",
+		"PATH" => SITE_TEMPLATE_PATH."/includes/home-brands.php"
+	),
+	false
+);?>
+
+<?$APPLICATION->IncludeComponent(
+	"bitrix:main.include",
+	"",
+	array(
+		"AREA_FILE_SHOW" => "file",
+		"PATH" => SITE_TEMPLATE_PATH."/includes/home-blog.php"
+	),
+	false
+);?>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
