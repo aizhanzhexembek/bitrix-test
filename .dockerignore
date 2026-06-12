@@ -1,0 +1,7 @@
+# Runtime data, logs and dumps must not be part of the build context.
+db/
+rabbitmq/data/
+shared/
+elk/elastic/data/
+elk/filebeat/data/
+mysql/entrypoint/dump.sql*

@@ -1,0 +1,25 @@
+# General
+/xxx
+/.idea
+.env
+
+# PHP
+**.php-cs-fixer.cache
+**.htaccess
+**test.php
+
+# API
+**/vendor/
+/bitrix/
+/upload/
+#/include/
+
+# Docs
+/docs/
+!/docs/fullready-audit.md
+!/docs/fullready-bitrix-mapping.md
+!/docs/plan.md
+!/docs/progress.md
+!/docs/release-checklist.md
+!/docs/release-notes.md
+!/docs/testing-report.md
