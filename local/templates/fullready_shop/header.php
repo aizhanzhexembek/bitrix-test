@@ -20,6 +20,7 @@ $request = \Bitrix\Main\Context::getCurrent()->getRequest();
 $isHttps = $request->isHttps() || (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on');
 $scheme = $isHttps ? 'https' : 'http';
 $canonical = $scheme . '://' . $request->getHttpHost() . $APPLICATION->GetCurPage(false);
+$searchQuery = trim((string)$request->getQuery('q'));
 ?>
 <!doctype html>
 <html lang="<?= LANGUAGE_ID ?>">
@@ -43,13 +44,34 @@ $canonical = $scheme . '://' . $request->getHttpHost() . $APPLICATION->GetCurPag
                 <label for="Popup__cameras-logo">
                     <select class="cameras__logo" name="cameras_logo" id="Popup__cameras-logo">
                         <option value="logo_item1">Любого логотипа</option>
+                        <option value="logo_item2">Компакт-камера</option>
+                        <option value="logo_item3">Беззеркальная</option>
+                        <option value="logo_item4">Зеркальная</option>
+                        <option value="logo_item5">Среднеформатная</option>
                     </select>
                 </label>
                 <label for="Popup__cameras-brand">
                     <select class="cameras__brand" name="cameras_brand" id="Popup__cameras-brand">
                         <option value="brand_item1">Любого бренда</option>
+                        <option value="brand_item2">Canon</option>
+                        <option value="brand_item3">Nikon</option>
+                        <option value="brand_item4">Sony</option>
+                        <option value="brand_item5">Fujifilm</option>
+                        <option value="brand_item6">Samsung</option>
+                        <option value="brand_item7">Olympus</option>
                     </select>
                 </label>
+                <div class="cameras__price">
+                    <div class="cameras__price-container">
+                        <label class="cameras__price-limit-start" for="Popup__start-price">от</label>
+                        <input class="cameras__price-start" type="text" id="Popup__start-price" name="start_price">
+                    </div>
+                    <div class="cameras__price-container">
+                        <label class="cameras__price-limit-end" for="Popup__end-price">до</label>
+                        <input class="cameras__price-end" type="text" id="Popup__end-price" name="end_price">
+                    </div>
+                    <button class="filterPopup__inner-button" type="submit" disabled>ПРИМЕНИТЬ</button>
+                </div>
             </form>
         </div>
     </div>
@@ -85,30 +107,13 @@ $canonical = $scheme . '://' . $request->getHttpHost() . $APPLICATION->GetCurPag
                         );
                         ?>
                     </div>
-                    <div class="search__inner" id="search">
-                        <?php
-                        $APPLICATION->IncludeComponent(
-                            'bitrix:search.title',
-                            'bootstrap_v4',
-                            [
-                                'NUM_CATEGORIES' => '1',
-                                'TOP_COUNT' => '5',
-                                'CHECK_DATES' => 'N',
-                                'SHOW_OTHERS' => 'N',
-                                'PAGE' => SITE_DIR . 'catalog/',
-                                'CATEGORY_0_TITLE' => 'Товары',
-                                'CATEGORY_0' => ['iblock_catalog'],
-                                'CATEGORY_0_iblock_catalog' => ['all'],
-                                'SHOW_INPUT' => 'Y',
-                                'INPUT_ID' => 'title-search-input',
-                                'CONTAINER_ID' => 'search',
-                                'SHOW_PREVIEW' => 'Y',
-                                'PREVIEW_WIDTH' => '75',
-                                'PREVIEW_HEIGHT' => '75',
-                            ],
-                            false
-                        );
-                        ?>
+                    <div class="search__inner">
+                        <form class="search__form" id="search__form" method="get" action="<?= SITE_DIR ?>search/">
+                            <button class="search__form-button" type="submit" onclick="return SearchButtonClick()"></button>
+                            <label for="search">
+                                <input class="search__form-input" type="text" placeholder="Поиск товаров" id="search" name="q" value="<?= htmlspecialcharsbx($searchQuery) ?>">
+                            </label>
+                        </form>
                     </div>
                 </div>
                 <div class="payment">
@@ -116,25 +121,52 @@ $canonical = $scheme . '://' . $request->getHttpHost() . $APPLICATION->GetCurPag
                 </div>
             </div>
             <div class="header__menu">
-                <div id="goodsmenu">
-                    <?php
-                    $APPLICATION->IncludeComponent(
-                        'bitrix:menu',
-                        'bootstrap_v4',
-                        [
-                            'ROOT_MENU_TYPE' => 'left',
-                            'MAX_LEVEL' => '2',
-                            'CHILD_MENU_TYPE' => 'left',
-                            'USE_EXT' => 'Y',
-                            'MENU_CACHE_TYPE' => 'A',
-                            'MENU_CACHE_TIME' => '36000000',
-                            'MENU_CACHE_USE_GROUPS' => 'Y',
-                            'MENU_CACHE_GET_VARS' => [],
-                            'ALLOW_MULTI_SELECT' => 'N',
-                        ],
-                        false
-                    );
-                    ?>
+                <div id="shopmenu">
+                    <input id="goods-menu-toggle" type="checkbox">
+                    <label class="menu-button-container" for="goods-menu-toggle"></label>
+                    <div id="goodsmenu">
+                        <?php
+                        $APPLICATION->IncludeComponent(
+                            'bitrix:menu',
+                            'fullready_header',
+                            [
+                                'ROOT_MENU_TYPE' => 'left',
+                                'MAX_LEVEL' => '1',
+                                'CHILD_MENU_TYPE' => 'left',
+                                'USE_EXT' => 'Y',
+                                'MENU_CACHE_TYPE' => 'A',
+                                'MENU_CACHE_TIME' => '36000000',
+                                'MENU_CACHE_USE_GROUPS' => 'Y',
+                                'MENU_CACHE_GET_VARS' => [],
+                                'ALLOW_MULTI_SELECT' => 'N',
+                            ],
+                            false
+                        );
+                        ?>
+                    </div>
+                </div>
+                <div class="header__menu-logo logo">
+                    <a href="<?= SITE_DIR ?>" class="logo_link">
+                        <?php
+                        $APPLICATION->IncludeComponent(
+                            'bitrix:main.include',
+                            '',
+                            [
+                                'AREA_FILE_SHOW' => 'file',
+                                'PATH' => SITE_DIR . 'include/company_logo_mobile.php',
+                            ],
+                            false
+                        );
+                        ?>
+                    </a>
+                </div>
+                <div class="search__inner menu-search">
+                    <form class="menu-search__form" id="menu-search__form" method="get" action="<?= SITE_DIR ?>search/">
+                        <button class="menu-search__button" onclick="return SearchButtonClick()" type="submit" id="menu-search__button"></button>
+                        <label for="menu-search__input">
+                            <input class="menu-search__input" type="text" placeholder="Поиск товаров" name="q" id="menu-search__input" value="<?= htmlspecialcharsbx($searchQuery) ?>">
+                        </label>
+                    </form>
                 </div>
                 <div class="basket">
                     <?php
