@@ -1,0 +1,75 @@
+/* Основные стили шаблона fullready_shop */
+
+/* Базовые стили-надстройки для интеграции fullready с Bitrix */
+
+.content-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 8px 0 20px;
+}
+
+.content-links a {
+    color: #1d4aa8;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.content-links a:hover {
+    text-decoration: underline;
+}
+
+.basket__count {
+    display: inline-block;
+    min-width: 18px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 9px;
+    text-align: center;
+    font-size: 11px;
+    background: #e53935;
+    color: #fff;
+    margin-left: 6px;
+}
+
+.home-extra {
+    margin: 24px 0;
+}
+
+.home-extra h2 {
+    margin: 0 0 12px;
+    font-size: 24px;
+}
+
+.home-extra__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.home-extra__links a {
+    color: #1d4aa8;
+    text-decoration: none;
+}
+
+.home-extra__links a:hover {
+    text-decoration: underline;
+}
+
+.fullready-personal {
+    margin: 16px 0 32px;
+}
+
+.fullready-personal .sale-order-list-title-container,
+.fullready-personal .sale-personal-section-index-block,
+.fullready-personal .basket-items-list-header {
+    border-radius: 6px;
+}
+
+.fullready-content-page {
+    margin: 8px 0 24px;
+}
+
+.fullready-content-page h2 {
+    margin-top: 20px;
+}
